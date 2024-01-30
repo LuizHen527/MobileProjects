@@ -14,14 +14,15 @@ export default function App() {
 
       <TextInput 
       style={styles.input} 
-      defaultValue='Email'
-      label="Email"
+      placeholder='Email'
+      //label="Email"
       />
 
       <TextInput 
       style={styles.input} 
-      defaultValue='Senha'
-      label="Senha"
+      placeholder='Senha'
+      //placeholderTextColor='blue'
+      //label="Senha"
       />
 
       <TouchableOpacity style={styles.btn}>
