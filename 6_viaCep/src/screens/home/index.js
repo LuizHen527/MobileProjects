@@ -1,3 +1,4 @@
+import { InputBox } from "../../components/inputBox";
 import { ConteinerForm, ScrollForm } from "./style";
 
 
@@ -17,8 +18,12 @@ export function Home(){
             
         <ScrollForm>
             <ConteinerForm>
-                {/* <InputBox>
-                </InputBox> */}
+                <InputBox
+                textLabel= "informe o CEP"
+                placeholder="CEP..."
+                keyType='numeric'
+                maxLength={9}
+                />
             </ConteinerForm>
         </ScrollForm>
     )

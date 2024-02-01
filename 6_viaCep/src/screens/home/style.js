@@ -5,5 +5,5 @@ export const ScrollForm = styled.ScrollView`
 `
 
 export const ConteinerForm = styled.SafeAreaView`
-    
+    width: 80%;
 `
