@@ -11,6 +11,7 @@ export const InputBox = ({
     onChangeText = null,
     keyType = 'default',
     maxLength,
+    onBlur = null
 }) => {
     return(
 
@@ -23,6 +24,7 @@ export const InputBox = ({
                 maxLength={maxLength}
                 fieldValue={fieldValue}
                 onChangeText={onChangeText}
+                onBlur={onBlur}
             />
         </FieldContent>
     )

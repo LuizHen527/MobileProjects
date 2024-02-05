@@ -8,36 +8,38 @@ import axios from "axios";
 export function Home(){
 
     //hooks de states
-    const [cep, setCep] = useState('03209000');
-    const [logradouro, setLogradouro] = useState('');
-    const [bairro, setBairro] = useState('');
-    const [cidade, setCidade] = useState('');
-    const [estado, setEstado] = useState('');
-    const [uf, setUf] = useState('');
+    const [cep, setCep] = useState('');
+    const [endereco, setEndereco] = useState({})
     //hooks de effect
+ 
         
 
-        useEffect( async () => {
-            //Chamada da api
+        // useEffect(() => {
+        //     //Chamada da api
+            
+        // }, [])
+
+
+
+        async function getCep() {
             try {
                 if(cep != "" && cep.length === 8) {
-                    const endereco = await axios.get(`https://viacep.com.br/ws/${cep}/json`)
+                    const promise = await axios.get(`https://viacep.com.br/ws/${cep}/json`)
 
-                    if(endereco.error){
-                        alert("Verifique CEP");
-                        return;
-                    }
+                    // if(endereco.error){
+                    //     alert("Verifique CEP");
+                    //     return;
+                    // } 
 
-                    setLogradouro(endereco.data.logradouro);
-                    setBairro(endereco.data.bairro);
-                    setCidade
+                    setEndereco(promise.data)
 
                 }
             } catch (error) {
                 alert("Verifique o cep");
                 return;
             }
-        }, [])
+        }
+
     return(
 
         //Scrollform
@@ -56,19 +58,21 @@ export function Home(){
                     maxLength={9}
                     fieldValue={cep}
                     onChangeText={tx => setCep(tx)}
+                    onBlur={getCep}
                     />
                     <InputBox
                     textLabel= "Endereco"
                     placeholder="Endereco..."
-                    keyType='default'
                     maxLength={60}
+                    fieldValue={endereco.logradouro}
                     />
                     <InputBox
-                    textLabel= "Bairo"
-                    placeholder="Bairo..."
+                    textLabel= "Bairro"
+                    placeholder="Bairro..."
                     editable={true}
                     keyType='default'
                     maxLength={60}
+                    fieldValue={endereco.bairro}
                     />
                     <InputBox
                     textLabel= "Cidade"
@@ -76,6 +80,7 @@ export function Home(){
                     editable={true}
                     keyType='default'
                     maxLength={60}
+                    fieldValue={endereco.localidade}
                     />
                     <ViewItens>
                         <InputBox
@@ -85,6 +90,7 @@ export function Home(){
                         keyType='default'
                         maxLength={60}
                         fieldWidth = {70}
+                        fieldValue={endereco.uf}
                         />
                         <InputBox
                         textLabel= "UF"
@@ -93,6 +99,7 @@ export function Home(){
                         keyType='default'
                         maxLength={60}
                         fieldWidth = {20}
+                        fieldValue={endereco.uf}
                         />
                     </ViewItens>
                 </ConteinerForm>

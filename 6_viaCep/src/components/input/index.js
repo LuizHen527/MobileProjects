@@ -6,7 +6,8 @@ export const Input = ({
     fieldValue,
     onChangeText,
     keyType,
-    maxLength
+    maxLength,
+    onBlur
 }) => {
     return(
         <InputText
@@ -16,6 +17,7 @@ export const Input = ({
             maxLength={maxLength}
             value={fieldValue}
             onChangeText={onChangeText}
+            onBlur={onBlur}
         />
     )
 }
