@@ -8,7 +8,7 @@ import { Camera, CameraType } from 'expo-camera'
 import * as MediaLibrary from 'expo-media-library';
 
 // Quando salvar a foto - ter opcao de apagar da galeria
-// Botao pra ativar o flash
+// Botao pra ativar o flash -
 // Forma de recarregar o autofocus
 // Colocar app de video no projeto
 
